@@ -1,0 +1,4 @@
+.gallery_container {
+  display: flex;
+  background-color: var(--yellow-hex);
+}

@@ -1,5 +1,5 @@
-import Footer from "@/components/footer/footer";
-import Header from "@/components/header/header";
+import Footer from "@/components/layout/Footer/Footer";
+import Header from "@/components/layout/Header/Header";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
