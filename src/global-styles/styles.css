@@ -7,15 +7,22 @@
 }
 
 header {
-  background-color: var(--green-hex);
+  background-image: linear-gradient(
+    to right,
+    var(--blue-hex),
+    var(--green-hex),
+    var(--orange-hex)
+  );
+  height: 8rem;
 }
 
 footer {
-  background-color: var(--blue-hex);
+  background-color: var(--yellow-hex);
+  height: 8rem;
 }
 
 main {
-  margin: 20px;
+  margin: 1rem;
 }
 
 body {

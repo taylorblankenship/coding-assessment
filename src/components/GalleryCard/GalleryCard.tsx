@@ -1,6 +1,7 @@
 import { getPokemonDetails } from "@/services/poke-service";
 import { GalleryPokemon, PokemonDetails } from "@/services/types";
 import { useEffect, useState } from "react";
+import styles from "./GalleryCard.module.css";
 
 const GalleryCard = ({ pokemon }: { pokemon: GalleryPokemon }) => {
   const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails>();
@@ -17,19 +18,16 @@ const GalleryCard = ({ pokemon }: { pokemon: GalleryPokemon }) => {
     getData();
   }, [pokemon]);
   return (
-    <div>
-      <div>
-        {pokemonDetails ? (
-          <img
-            src={
-              pokemonDetails?.sprites.other["official-artwork"].front_default
-            }
-            alt={pokemon.name}
-          />
-        ) : (
-          <div>Loading...</div>
-        )}
-      </div>
+    <div className={styles.gallery_card}>
+      {pokemonDetails ? (
+        <img
+          src={pokemonDetails?.sprites.other["official-artwork"].front_default}
+          alt={pokemon.name}
+        />
+      ) : (
+        <div>Loading...</div>
+      )}
+      {pokemon.name}
     </div>
   );
 };
