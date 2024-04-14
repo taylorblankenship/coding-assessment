@@ -9,9 +9,8 @@ interface getGalleryProps {
 export const getGallery = async (
   galleryProps?: getGalleryProps //todo to be used for pagination
 ): Promise<GalleryPokemon[]> => {
-  const url = "https://pokeapi.co/api/v2/pokemon-species/";
   try {
-    const res = await axios.get(url);
+    const res = await axios.get("https://pokeapi.co/api/v2/pokemon-species/");
     return res.data.results;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -23,10 +22,12 @@ export const getGallery = async (
 };
 
 export const getPokemonSpeciesInfo = async (
-  url: string
+  name: string
 ): Promise<PokemonSpeciesInfo> => {
   try {
-    const res = await axios.get(url);
+    const res = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon-species/${name}`
+    );
     return res.data.results;
   } catch (error) {
     if (axios.isAxiosError(error)) {

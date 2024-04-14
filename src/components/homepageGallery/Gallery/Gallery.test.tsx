@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import React from "react";
 import Gallery from "./Gallery";
-import { GalleryPokemon } from "@/services/types";
+import { GalleryPokemon, PokemonDetails } from "@/services/types";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const pokemonService = require("@/services/poke-service");
@@ -20,9 +20,31 @@ const mockGalleryData: GalleryPokemon[] = [
   { name: "squirtle", url: "test.com/squirtle" },
 ];
 
+const mockPokemonDetails: PokemonDetails = {
+  name: "bulbasaur",
+  id: 1,
+  height: 20,
+  weight: 20,
+  cries: {
+    legacy: "test/1.ogg",
+    latest: "test/2.ogg",
+  },
+  sprites: {
+    front_default: "bulbasaur_sprite.png",
+    back_default: "bulbasaur_back_sprite.png",
+    other: {
+      "official-artwork": {
+        front_default: "bulbasaur.png",
+        front_shiny: "shiny_bulbasaur.png",
+      },
+    },
+  },
+};
+
 describe("Gallery Component", () => {
   beforeEach(() => {
     pokemonService.getGallery.mockResolvedValue(mockGalleryData);
+    pokemonService.getPokemonDetails.mockResolvedValue(mockPokemonDetails);
   });
   it("calls the service once on load", async () => {
     render(

@@ -1,6 +1,14 @@
-import { getGallery } from "@/services/poke-service";
-import { GalleryPokemon } from "@/services/types";
-import { QueryKey, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  getGallery,
+  getPokemonDetails,
+  getPokemonSpeciesInfo,
+} from "@/services/poke-service";
+import {
+  GalleryPokemon,
+  PokemonDetails,
+  PokemonSpeciesInfo,
+} from "@/services/types";
+import { QueryKey, useQuery } from "@tanstack/react-query";
 
 //todo theoretically search/filter stuff could go here
 export const useGalleryPokemon = () => {
@@ -15,6 +23,38 @@ export const useGalleryPokemon = () => {
 
   return {
     galleryPokemon: data,
+    isLoading,
+  };
+};
+
+export const usePokemonDetails = (name: string) => {
+  const { data, isLoading } = useQuery<PokemonDetails, Error>({
+    queryKey: ["pokemon-details-query", name] as QueryKey,
+    queryFn: async () => {
+      const pokemonDetails = await getPokemonDetails(name);
+      return pokemonDetails;
+    },
+    staleTime: Infinity, //we do not want data to be refetched
+  });
+
+  return {
+    pokemonDetails: data,
+    isLoading,
+  };
+};
+
+export const usePokemonSpeciesInfo = (name: string) => {
+  const { data, isLoading } = useQuery<PokemonSpeciesInfo, Error>({
+    queryKey: ["pokemon-species-info-query", name] as QueryKey,
+    queryFn: async () => {
+      const pokemonSpeciesInfo = await getPokemonSpeciesInfo(name);
+      return pokemonSpeciesInfo;
+    },
+    staleTime: Infinity, //we do not want data to be refetched
+  });
+
+  return {
+    pokemonSpeciesInfo: data,
     isLoading,
   };
 };
