@@ -10,7 +10,6 @@ const GalleryCard = ({ pokemon }: { pokemon: GalleryPokemon }) => {
     const getData = async () => {
       try {
         const res = await getPokemonDetails(pokemon.name);
-        console.log(res);
         setPokemonDetails(res);
       } catch (error) {
         console.log(error);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./Gallery.module.css";
+import styles from "/Gallery.module.css";
 import { GalleryPokemon } from "@/services/types";
 import { getGallery } from "@/services/poke-service";
 import GalleryCard from "../GalleryCard/GalleryCard";
