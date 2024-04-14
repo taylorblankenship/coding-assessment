@@ -2,10 +2,7 @@ import "@testing-library/jest-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import React from "react";
 import Gallery from "./Gallery";
-import {
-  getPokemonDetails,
-  getPokemonSpeciesInfo,
-} from "@/services/poke-service";
+import { GalleryPokemon } from "@/services/types";
 
 const pokemonService = require("@/services/poke-service");
 jest.mock("@/services/poke-service", () => ({
@@ -14,7 +11,7 @@ jest.mock("@/services/poke-service", () => ({
   getPokemonSpeciesInfo: jest.fn(),
 }));
 
-const mockGalleryData = [
+const mockGalleryData: GalleryPokemon[] = [
   { name: "bulbasaur", url: "test.com/bulbasaur" },
   { name: "charmander", url: "test.com/charmander" },
   { name: "squirtle", url: "test.com/squirtle" },
