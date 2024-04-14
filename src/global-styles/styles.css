@@ -6,20 +6,12 @@
   --charcoal-hex: #3b4248;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
 header {
   background-color: var(--green-hex);
 }
 
 footer {
-  background-color: green;
+  background-color: var(--blue-hex);
 }
 
 main {

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "./Gallery.module.css";
-import getGallery from "@/services/gallery-service";
-import GalleryPokemon from "@/services/types";
+import { GalleryPokemon } from "@/services/types";
+import { getGallery } from "@/services/poke-service";
+import GalleryCard from "../GalleryCard/GalleryCard";
 
 const Gallery = () => {
   // fetch gallery on load
@@ -20,11 +21,9 @@ const Gallery = () => {
 
   return (
     <div className={styles.gallery_container}>
-      <div>
-        {galleryData?.map((pokemon, idx) => (
-          <div key={idx}>{pokemon.name}</div>
-        ))}
-      </div>
+      {galleryData?.map((pokemon, idx) => (
+        <GalleryCard pokemon={pokemon} key={idx} />
+      ))}
     </div>
   );
 };
