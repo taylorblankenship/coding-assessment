@@ -1,27 +1,14 @@
-import { useEffect, useState } from "react";
-import styles from "/Gallery.module.css";
-import { GalleryPokemon } from "@/services/types";
-import { getGallery } from "@/services/poke-service";
+import styles from "./Gallery.module.css";
 import GalleryCard from "../GalleryCard/GalleryCard";
+import { useGalleryPokemon } from "@/hooks/usePokemon";
 
 const Gallery = () => {
-  // fetch gallery on load
-  const [galleryData, setGalleryData] = useState<GalleryPokemon[]>();
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await getGallery();
-        setGalleryData(res);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-  }, []);
-
-  return (
+  const { galleryPokemon, isLoading } = useGalleryPokemon();
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
     <div className={styles.gallery_container}>
-      {galleryData?.map((pokemon, idx) => (
+      {galleryPokemon?.map((pokemon, idx) => (
         <GalleryCard pokemon={pokemon} key={idx} />
       ))}
     </div>

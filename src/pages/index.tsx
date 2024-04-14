@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <>
       <main className={`${inter.className}`}>
-        test homepage body content here
         <Gallery />
       </main>
     </>

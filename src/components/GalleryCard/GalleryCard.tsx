@@ -18,7 +18,7 @@ const GalleryCard = ({ pokemon }: { pokemon: GalleryPokemon }) => {
     getData();
   }, [pokemon]);
   return (
-    <Link href="/details">
+    <Link href={{ pathname: "/details", query: { pokemon: pokemon.name } }}>
       <div className={styles.gallery_card}>
         {pokemonDetails ? (
           <img

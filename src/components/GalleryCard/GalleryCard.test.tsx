@@ -3,6 +3,7 @@ import { render, waitFor, screen } from "@testing-library/react";
 import React from "react";
 import { GalleryPokemon, PokemonDetails } from "@/services/types";
 import GalleryCard from "./GalleryCard";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const pokemonService = require("@/services/poke-service");
 jest.mock("@/services/poke-service", () => ({
@@ -10,6 +11,8 @@ jest.mock("@/services/poke-service", () => ({
   getPokemonDetails: jest.fn(),
   getPokemonSpeciesInfo: jest.fn(),
 }));
+
+const queryClient = new QueryClient();
 
 const mockPokemon: GalleryPokemon = {
   name: "bulbasaur",
@@ -42,7 +45,11 @@ describe("GalleryCard Component", () => {
 
   it("renders card with Pokemon details correctly", async () => {
     pokemonService.getPokemonDetails.mockResolvedValue(mockPokemonDetails);
-    render(<GalleryCard pokemon={mockPokemon} />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <GalleryCard pokemon={mockPokemon} />
+      </QueryClientProvider>
+    );
     await waitFor(() => {
       expect(screen.getByText("bulbasaur")).toBeInTheDocument();
       expect(screen.getByAltText("bulbasaur")).toBeInTheDocument();
@@ -50,7 +57,11 @@ describe("GalleryCard Component", () => {
   });
 
   it("renders loading message while fetching Pokemon details", async () => {
-    render(<GalleryCard pokemon={mockPokemon} />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <GalleryCard pokemon={mockPokemon} />
+      </QueryClientProvider>
+    );
     expect(screen.getByText("Loading...")).toBeInTheDocument();
     pokemonService.getPokemonDetails.mockResolvedValue(mockPokemonDetails);
     await waitFor(() => {

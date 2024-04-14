@@ -3,6 +3,7 @@ import { render, waitFor, screen } from "@testing-library/react";
 import React from "react";
 import Gallery from "./Gallery";
 import { GalleryPokemon } from "@/services/types";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const pokemonService = require("@/services/poke-service");
 jest.mock("@/services/poke-service", () => ({
@@ -11,6 +12,8 @@ jest.mock("@/services/poke-service", () => ({
   getPokemonSpeciesInfo: jest.fn(),
 }));
 
+const queryClient = new QueryClient();
+
 const mockGalleryData: GalleryPokemon[] = [
   { name: "bulbasaur", url: "test.com/bulbasaur" },
   { name: "charmander", url: "test.com/charmander" },
@@ -18,14 +21,23 @@ const mockGalleryData: GalleryPokemon[] = [
 ];
 
 describe("Gallery Component", () => {
-  beforeEach(() => {});
+  beforeEach(() => {
+    pokemonService.getGallery.mockResolvedValue(mockGalleryData);
+  });
   it("calls the service once on load", async () => {
-    render(<Gallery />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Gallery />
+      </QueryClientProvider>
+    );
     expect(pokemonService.getGallery).toHaveBeenCalledTimes(1);
   });
   it("renders gallery correctly", async () => {
-    pokemonService.getGallery.mockResolvedValue(mockGalleryData);
-    render(<Gallery />);
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Gallery />
+      </QueryClientProvider>
+    );
     await waitFor(() => {
       expect(screen.getByText("bulbasaur")).toBeInTheDocument();
       expect(screen.getByText("charmander")).toBeInTheDocument();
