@@ -8,6 +8,12 @@ export interface PokemonDetails {
   name: string;
   height: number;
   weight: number;
+  abilities: { ability: { name: string } }[];
+  held_iems: { item: { name: string } }[];
+  moves: { move: { name: string } }[];
+  types: { type: { name: string } }[];
+
+  //Media
   sprites: {
     front_default: string;
     back_default: string;
@@ -26,7 +32,6 @@ export interface PokemonSpeciesInfo {
   name: string;
   color: {
     name: string;
-    url: string;
   };
   flavor_text_entries: { flavor_text: string }[];
 }

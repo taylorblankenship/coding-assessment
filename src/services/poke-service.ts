@@ -28,7 +28,7 @@ export const getPokemonSpeciesInfo = async (
     const res = await axios.get(
       `https://pokeapi.co/api/v2/pokemon-species/${name}`
     );
-    return res.data.results;
+    return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw error;

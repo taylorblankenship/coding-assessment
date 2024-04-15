@@ -1,4 +1,4 @@
-import Gallery from "@/components/homepage_gallery/Gallery/Gallery";
+import Gallery from "@/components/homepageGallery/Gallery/Gallery";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] }); //todo font
