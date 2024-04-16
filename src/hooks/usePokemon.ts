@@ -8,7 +8,8 @@ import {
   PokemonDetails,
   PokemonSpeciesInfo,
 } from "@/services/types";
-import { QueryKey, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 
 //todo theoretically search/filter stuff could go here
 export const useGalleryPokemon = () => {
@@ -21,9 +22,29 @@ export const useGalleryPokemon = () => {
     staleTime: Infinity, //we do not want data to be refetched
   });
 
+  const numPerPage = 20;
+  const [gallerySubset, setGallerySubset] = useState<GalleryPokemon[]>([]);
+  const [endOfData, setEndOfData] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    if (!data) return;
+    const startIndex = currentPage * numPerPage;
+    const endIdx = Math.min((currentPage + 1) * numPerPage, data.length);
+    const subset = data.slice(startIndex, endIdx);
+    setGallerySubset(subset);
+    setEndOfData(endIdx === data.length);
+  }, [data, currentPage]);
+
+  const getNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
   return {
-    galleryPokemon: data,
+    galleryPokemon: gallerySubset,
+    endOfData,
     isLoading,
+    getNextPage,
   };
 };
 

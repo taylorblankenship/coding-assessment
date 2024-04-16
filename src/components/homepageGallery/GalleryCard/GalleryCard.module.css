@@ -1,11 +1,20 @@
 .gallery_card {
   max-width: 12rem;
-  background-color: var(--charcoal-hex);
+  background-color: var(--black-hex);
   border-radius: 0.25rem;
   color: white;
   text-align: center;
   padding: 0.3rem;
   box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.9);
+  height: 14rem;
+  width: 12.5rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: linear 0.2s;
+}
+
+.gallery_card:hover {
+  box-shadow: 0 0.7rem 1rem rgba(0, 0, 0, 0.9);
 }
 
 .gallery_card img {

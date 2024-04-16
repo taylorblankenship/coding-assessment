@@ -1,12 +1,16 @@
 import Gallery from "@/components/homepageGallery/Gallery/Gallery";
-import { Inter } from "next/font/google";
+import { Arimo } from "next/font/google";
+import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] }); //todo font
+const arimo = Arimo({ subsets: ["latin"] }); //todo font
 
 export default function Home() {
   return (
     <>
-      <main className={`${inter.className}`}>
+      <Head>
+        <title>PokéSearch</title>
+      </Head>
+      <main className={`${arimo.className}`}>
         <Gallery />
       </main>
     </>

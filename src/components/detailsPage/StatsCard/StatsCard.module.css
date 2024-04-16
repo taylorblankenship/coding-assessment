@@ -1,0 +1,45 @@
+.spritesContainer {
+  text-align: center;
+}
+
+.statsContainer h4 {
+  margin: 0;
+}
+
+.statsContainer {
+  background-color: white;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.numberedStats {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.numberedStats div {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px var(--gray-hex);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  min-width: 4rem;
+}
+
+.statsInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.statsInfo > div:not(:last-child) {
+  border-bottom: dotted 3px var(--gray-hex);
+  padding-bottom: 1rem;
+}
+
+.statsInfo div div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

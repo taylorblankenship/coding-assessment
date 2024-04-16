@@ -9,7 +9,7 @@ export interface PokemonDetails {
   height: number;
   weight: number;
   abilities: { ability: { name: string } }[];
-  held_iems: { item: { name: string } }[];
+  held_items: { item: { name: string } }[];
   moves: { move: { name: string } }[];
   types: { type: { name: string } }[];
 
@@ -33,5 +33,5 @@ export interface PokemonSpeciesInfo {
   color: {
     name: string;
   };
-  flavor_text_entries: { flavor_text: string }[];
+  flavor_text_entries: { flavor_text: string; language: { name: string } }[];
 }

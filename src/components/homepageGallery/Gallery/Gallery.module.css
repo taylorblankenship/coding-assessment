@@ -1,5 +1,29 @@
-.gallery_container {
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galleryItemsContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
+}
+
+.galleryItemsContainer a {
+  text-decoration: none;
+}
+
+.loadMoreButton {
+  width: 80%;
+  margin-top: 1rem;
+  padding: 10px;
+  background-color: var(--yellow-hex);
+  border: none;
+  transition: linear 0.1s;
+}
+
+.loadMoreButton:hover {
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.5);
 }

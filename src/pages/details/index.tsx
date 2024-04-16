@@ -1,11 +1,13 @@
-import { Inter } from "next/font/google";
+import { Arimo, Inter } from "next/font/google";
 import Details from "@/components/detailsPage/Details/Details";
 import { useEffect, useState } from "react";
-import router from "next/router";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
-const inter = Inter({ subsets: ["latin"] }); //todo font
+const arimo = Arimo({ subsets: ["latin"] }); //todo font
 
 export default function DetailsPage() {
+  const router = useRouter();
   const [pokemonName, setPokemonName] = useState<string>();
   useEffect(() => {
     const { query } = router;
@@ -14,13 +16,16 @@ export default function DetailsPage() {
         Array.isArray(query.pokemon) ? query.pokemon.join() : query.pokemon
       );
     } else {
-      //todo create error state
+      setPokemonName("");
     }
-  }, []);
+  }, [router]);
 
   return (
     <>
-      <main className={`${inter.className}`}>
+      <Head>
+        <title>{pokemonName?.toUpperCase()}</title>
+      </Head>
+      <main className={`${arimo.className}`}>
         {pokemonName && <Details pokemonName={pokemonName} />}
       </main>
     </>

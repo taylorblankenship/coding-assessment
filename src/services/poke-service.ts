@@ -1,16 +1,12 @@
 import axios from "axios";
 import { GalleryPokemon, PokemonDetails, PokemonSpeciesInfo } from "./types";
 
-interface getGalleryProps {
-  pageCount?: number;
-  pageLimit?: number;
-}
-
-export const getGallery = async (
-  galleryProps?: getGalleryProps //todo to be used for pagination
-): Promise<GalleryPokemon[]> => {
+export const getGallery = async (): Promise<GalleryPokemon[]> => {
   try {
-    const res = await axios.get("https://pokeapi.co/api/v2/pokemon-species/");
+    const res = await axios.get(
+      "https://pokeapi.co/api/v2/pokemon-species/?limit=1025"
+    );
+    console.log(res);
     return res.data.results;
   } catch (error) {
     if (axios.isAxiosError(error)) {

@@ -1,24 +1,50 @@
 :root {
-  --yellow-hex: #fadf75;
-  --orange-hex: #f3a468;
+  --black-hex: #3b4248;
   --blue-hex: #90aff4;
+  --brown-hex: #d9cb81;
+  --gray-hex: #b0b8bf;
   --green-hex: #a2d883;
-  --charcoal-hex: #3b4248;
+  --pink-hex: #e6b3cc;
+  --purple-hex: #cebbff;
+  --red-hex: #f3a468;
+  --white-hex: #dce3e5;
+  --yellow-hex: #fadf75;
 }
 
 header {
+  /* //height: 10rem; */
+}
+
+header div:first-child {
+  background-color: var(--black-hex);
+  padding: 2rem;
+}
+
+header > div:last-child {
+  height: 2rem;
   background-image: linear-gradient(
     to right,
     var(--blue-hex),
     var(--green-hex),
-    var(--orange-hex)
+    var(--red-hex)
   );
-  height: 8rem;
+}
+
+header div a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 5rem;
+  justify-content: center;
 }
 
 footer {
-  background-color: var(--yellow-hex);
+  background-color: var(--black-hex);
   height: 8rem;
+  color: white;
 }
 
 main {
@@ -28,4 +54,9 @@ main {
 body {
   padding: 0;
   margin: 0;
+  color: var(--black-hex);
+}
+
+button {
+  cursor: pointer;
 }
