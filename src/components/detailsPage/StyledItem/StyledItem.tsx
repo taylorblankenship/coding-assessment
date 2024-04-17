@@ -6,11 +6,10 @@ interface StyledItemProps {
 }
 
 const StyledItem = ({ text, isType }: StyledItemProps) => {
+  const typeClass = isType ? " " + styles[text.toLowerCase()] : "";
   return (
-    <div className={styles.styledItem}>
+    <div className={styles.styledItem + typeClass}>
       {text.replace("-", " ")}
-      {isType && <>type</>}
-      {/* todo add custom colors for types */}
     </div>
   );
 };

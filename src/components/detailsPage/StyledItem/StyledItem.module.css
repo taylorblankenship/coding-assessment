@@ -5,3 +5,13 @@
   background-color: var(--black-hex);
   color: white;
 }
+
+.water {
+  color: blue;
+}
+.fire {
+  color: red;
+}
+.grass {
+  color: green;
+}

@@ -13,7 +13,6 @@ const Gallery = () => {
   useEffect(() => {
     if (galleryPokemon && galleryPokemon.length > 0) {
       setCurrentGallery((prevGallery) => [...prevGallery, ...galleryPokemon]);
-      console.log("hit");
     }
   }, [galleryPokemon]);
 

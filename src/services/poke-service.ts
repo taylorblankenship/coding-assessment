@@ -6,7 +6,6 @@ export const getGallery = async (): Promise<GalleryPokemon[]> => {
     const res = await axios.get(
       "https://pokeapi.co/api/v2/pokemon-species/?limit=1025"
     );
-    console.log(res);
     return res.data.results;
   } catch (error) {
     if (axios.isAxiosError(error)) {
