@@ -6,14 +6,18 @@ const StatsCard = ({ pokemonDetails }: { pokemonDetails: PokemonDetails }) => {
   return (
     <div className={styles.statsContainer}>
       <div className={styles.spritesContainer}>
-        <img
-          src={pokemonDetails.sprites.front_default}
-          alt={`${pokemonDetails.name} front sprite`}
-        />
-        <img
-          src={pokemonDetails.sprites.back_default}
-          alt={`${pokemonDetails.name} back sprite`}
-        />
+        {pokemonDetails.sprites.front_default && (
+          <img
+            src={pokemonDetails.sprites.front_default}
+            alt={`${pokemonDetails.name} front sprite`}
+          />
+        )}
+        {pokemonDetails.sprites.back_default && (
+          <img
+            src={pokemonDetails.sprites.back_default}
+            alt={`${pokemonDetails.name} back sprite`}
+          />
+        )}
       </div>
       <div className={styles.statsInfo}>
         <div className={styles.numberedStats}>
@@ -21,11 +25,10 @@ const StatsCard = ({ pokemonDetails }: { pokemonDetails: PokemonDetails }) => {
             <h4>ID</h4> {pokemonDetails.id}
           </div>
           <div>
-            {/* todo convert measurements to correct units */}
-            <h4>HEIGHT</h4> {pokemonDetails.height}
+            <h4>HEIGHT</h4> {pokemonDetails.height / 10}m
           </div>
           <div>
-            <h4>WEIGHT</h4> {pokemonDetails.weight}
+            <h4>WEIGHT</h4> {pokemonDetails.weight / 10}kg
           </div>
         </div>
         <div>
@@ -37,12 +40,15 @@ const StatsCard = ({ pokemonDetails }: { pokemonDetails: PokemonDetails }) => {
           </div>
         </div>
         <div>
-          {/* todo handle empty values */}
           <h4>HELD ITEMS</h4>
           <div>
-            {pokemonDetails.held_items.map((item, idx) => (
-              <StyledItem key={idx} text={item.item.name} />
-            ))}
+            {pokemonDetails.held_items.length ? (
+              pokemonDetails.held_items.map((item, idx) => (
+                <StyledItem key={idx} text={item.item.name} />
+              ))
+            ) : (
+              <StyledItem text={"None"} />
+            )}
           </div>
         </div>
         <div>

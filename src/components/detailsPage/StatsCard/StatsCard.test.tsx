@@ -13,9 +13,9 @@ describe("StatsCard component", () => {
     expect(getByText("ID")).toBeInTheDocument();
     expect(getByText("1")).toBeInTheDocument();
     expect(getByText("HEIGHT")).toBeInTheDocument();
-    expect(getByText("40")).toBeInTheDocument();
+    expect(getByText("4m")).toBeInTheDocument();
     expect(getByText("WEIGHT")).toBeInTheDocument();
-    expect(getByText("60")).toBeInTheDocument();
+    expect(getByText("6kg")).toBeInTheDocument();
 
     expect(getByAltText("pikachu front sprite")).toHaveAttribute(
       "src",

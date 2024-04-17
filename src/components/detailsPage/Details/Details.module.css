@@ -10,16 +10,22 @@
 }
 
 .headerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
   width: 100%;
   background-color: white;
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.3);
   border-radius: 5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+}
+.nameText {
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin: 0;
+}
+.headerContainer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem;
 }
 
 .infoContainer {
@@ -28,48 +34,21 @@
   flex-wrap: wrap;
   width: 100%;
   gap: 1rem;
+  align-items: center;
 }
 
-.imageContainer {
-  position: relative;
-}
-.imageContainer button {
-  background: none;
-  border: none;
-}
-
-.nameText {
-  text-transform: capitalize;
-  font-size: 2rem;
-}
-
-.shinyButton {
-  max-width: 5rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-/* todo make this look less wonky */
 .statsContainer {
+  width: 40%;
 }
 
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
+@media screen and (max-width: 750px) {
+  .detailsContainer {
+    padding: 1rem;
   }
-  50% {
-    transform: translateY(-20px);
+  .headerContainer > div {
+    flex-wrap: wrap;
   }
-  100% {
-    transform: translateY(0);
+  .statsContainer {
+    width: 100%;
   }
-}
-
-.imageContainer img:hover {
-  animation: bounce 0.5s ease infinite;
-}
-.imageContainer img {
-  width: 100%;
-  transition: transform 0.2s ease-in-out;
 }

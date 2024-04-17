@@ -3,8 +3,11 @@ import { GalleryPokemon, PokemonDetails, PokemonSpeciesInfo } from "./types";
 
 export const getGallery = async (): Promise<GalleryPokemon[]> => {
   try {
+    //1302
+    //1205
+    //todo figure out data issue
     const res = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon-species/?limit=1025"
+      "https://pokeapi.co/api/v2/pokemon/?limit=1025"
     );
     return res.data.results;
   } catch (error) {

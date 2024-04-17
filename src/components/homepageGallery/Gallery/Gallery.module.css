@@ -4,26 +4,51 @@
   align-items: center;
 }
 
+.searchContainer {
+  height: 1.5rem;
+  position: absolute;
+  margin-top: -3.2rem;
+}
+.searchContainer input {
+  border: none;
+  border-radius: 1rem;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 19rem;
+  text-align: center;
+}
+
 .galleryItemsContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
-
 .galleryItemsContainer a {
   text-decoration: none;
 }
 
 .loadMoreButton {
-  width: 80%;
+  width: 60%;
   margin-top: 1rem;
   padding: 10px;
-  background-color: var(--yellow-hex);
+  background-color: var(--green-hex);
   border: none;
   transition: linear 0.1s;
 }
-
 .loadMoreButton:hover {
   box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.5);
+}
+.loadMoreButton:disabled {
+  background-color: white;
+  border: solid 1px var(--gray-hex);
+  cursor: not-allowed;
+}
+.loadMoreButton:disabled:hover {
+  box-shadow: none;
+}
+
+.emptyState img {
+  max-width: 100%;
 }

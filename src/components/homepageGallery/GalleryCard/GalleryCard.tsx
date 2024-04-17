@@ -13,13 +13,11 @@ const GalleryCard = ({ pokemon }: { pokemon: GalleryPokemon }) => {
           <Loading />
         ) : (
           <img
-            src={
-              pokemonDetails?.sprites.other["official-artwork"].front_default
-            }
-            alt={pokemon.name}
+            src={pokemonDetails?.sprites.front_default}
+            alt={pokemon.name + " sprite"}
           />
         )}
-        {pokemon.name}
+        {pokemon.name.replace("-", " ")}
       </div>
     </Link>
   );

@@ -11,17 +11,12 @@
   --yellow-hex: #fadf75;
 }
 
-header {
-  /* //height: 10rem; */
-}
-
 header div:first-child {
   background-color: var(--black-hex);
   padding: 2rem;
 }
-
 header > div:last-child {
-  height: 2rem;
+  height: 3rem;
   background-image: linear-gradient(
     to right,
     var(--blue-hex),
@@ -29,7 +24,6 @@ header > div:last-child {
     var(--red-hex)
   );
 }
-
 header div a {
   display: flex;
   flex-wrap: wrap;
@@ -41,22 +35,28 @@ header div a {
   justify-content: center;
 }
 
-footer {
-  background-color: var(--black-hex);
-  height: 8rem;
-  color: white;
-}
-
 main {
   margin: 1rem;
 }
-
 body {
   padding: 0;
   margin: 0;
   color: var(--black-hex);
 }
-
 button {
   cursor: pointer;
+}
+
+footer {
+  background-color: var(--black-hex);
+  height: 8rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding: 1rem;
+}
+footer a {
+  color: white;
 }

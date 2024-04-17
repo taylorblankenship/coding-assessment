@@ -27,7 +27,7 @@ describe("Details component", () => {
     await waitFor(() => {
       expect(getByText("Pikachu")).toBeInTheDocument();
       expect(getByText("Pikachu is an electric Pokémon.")).toBeInTheDocument();
-      expect(getByAltText("Pikachu default artwork")).toHaveAttribute(
+      expect(getByAltText("pikachu default artwork")).toHaveAttribute(
         "src",
         "pikachu.png"
       );

@@ -1,5 +1,3 @@
-// fixtures.js
-
 import {
   GalleryPokemon,
   PokemonDetails,

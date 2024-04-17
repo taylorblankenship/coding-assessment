@@ -16,7 +16,7 @@ describe("GalleryCard Component", () => {
     );
     await waitFor(() => {
       expect(screen.getByText("bulbasaur")).toBeInTheDocument();
-      expect(screen.getByAltText("bulbasaur")).toBeInTheDocument();
+      expect(screen.getByAltText("bulbasaur sprite")).toBeInTheDocument();
     });
   });
 });
