@@ -47,7 +47,7 @@ const StatsCard = ({ pokemonDetails }: { pokemonDetails: PokemonDetails }) => {
                 <StyledItem key={idx} text={item.item.name} />
               ))
             ) : (
-              <StyledItem text={"None"} />
+              <StyledItem text={"none"} />
             )}
           </div>
         </div>

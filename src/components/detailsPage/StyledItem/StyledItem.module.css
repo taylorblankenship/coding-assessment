@@ -1,6 +1,6 @@
 .styledItem {
   border: solid 1px var(--gray-hex);
-  padding: 0.2rem;
+  padding: 0.4rem;
   border-radius: 2rem;
   color: black;
 }
