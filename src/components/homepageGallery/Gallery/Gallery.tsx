@@ -17,7 +17,7 @@ const Gallery = () => {
         <input
           type="text"
           onChange={(e) => {
-            filterData(e.target.value);
+            filterData(e.target.value.trim());
           }}
           placeholder="Type to search..."
         />
