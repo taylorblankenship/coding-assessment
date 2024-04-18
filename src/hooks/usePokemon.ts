@@ -11,18 +11,54 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
+const incompatiblePokemon = [
+  "basculin",
+  "darmanitan",
+  "basculegion",
+  "keldeo",
+  "pumpkaboo",
+  "deoxys",
+  "meloetta",
+  "wormadam",
+  "giratina",
+  "shaymin",
+  "tornadus",
+  "thundurus",
+  "landorus",
+  "meowstic",
+  "lycanroc",
+  "wishiwashi",
+  "minior",
+  "mimikyu",
+  "aegislash",
+  "gourgeist",
+  "zygarde",
+  "oricorio",
+  "toxtricity",
+  "eiscue",
+  "indeedee",
+  "morpeko",
+  "urshifu",
+  "enamorus",
+];
+
+const filterOutIncompatibleData = (data: GalleryPokemon[]) => {
+  return data.filter((pokemon) => !incompatiblePokemon.includes(pokemon.name));
+};
+
 export const useGalleryPokemon = () => {
   const { data, isLoading } = useQuery<GalleryPokemon[], Error>({
     queryKey: ["gallery-query"],
     queryFn: async () => {
-      const galleryData = await getGallery();
+      let galleryData = await getGallery();
+      galleryData = filterOutIncompatibleData(galleryData);
       setFilteredGallery(galleryData);
       return galleryData;
     },
     staleTime: Infinity, //we do not want data to be refetched
   });
 
-  const numPerPage = 20;
+  const numPerPage = 30;
   const [filteredGallery, setFilteredGallery] = useState<GalleryPokemon[]>(
     data || []
   );
@@ -31,16 +67,18 @@ export const useGalleryPokemon = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    //todo see if this useEffect can/should be removed
     if (!filteredGallery) return;
-    //pagination
     const startIndex = currentPage * numPerPage;
     const endIdx = Math.min(
       (currentPage + 1) * numPerPage,
       filteredGallery.length
     );
     const subset = filteredGallery.slice(startIndex, endIdx);
-    setGallerySubset((prevGallery) => [...prevGallery, ...subset]);
+    if (currentPage === 0) {
+      setGallerySubset(subset);
+    } else {
+      setGallerySubset((prevGallery) => [...prevGallery, ...subset]);
+    }
     setIsEndOfData(endIdx === filteredGallery.length);
   }, [filteredGallery, currentPage]);
 

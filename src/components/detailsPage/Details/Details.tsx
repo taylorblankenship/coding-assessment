@@ -3,6 +3,7 @@ import styles from "./Details.module.css";
 import StatsCard from "../StatsCard/StatsCard";
 import Loading from "@/components/Loading/Loading";
 import ImageCard from "../ImageCard/ImageCard";
+import Link from "next/link";
 
 const Details = ({ pokemonName }: { pokemonName: string }) => {
   const { pokemonDetails, isLoading: isLoadingDetails } =
@@ -14,38 +15,43 @@ const Details = ({ pokemonName }: { pokemonName: string }) => {
   };
 
   return (
-    <div style={color} className={styles.detailsContainer}>
-      {isLoadingDetails || isLoadingSpeciesInfo ? (
-        <Loading />
-      ) : (
-        <>
-          {pokemonDetails && pokemonSpeciesInfo ? (
-            <>
-              <div className={styles.headerContainer}>
-                <div>
-                  <h2 className={styles.nameText}>
-                    {pokemonName.replace("-", " ")}
-                  </h2>
+    <>
+      <div className={styles.backLink}>
+        <Link href="/">&larr; Back</Link>
+      </div>
+      <div style={color} className={styles.detailsContainer}>
+        {isLoadingDetails || isLoadingSpeciesInfo ? (
+          <Loading />
+        ) : (
+          <>
+            {pokemonDetails && pokemonSpeciesInfo ? (
+              <>
+                <div className={styles.headerContainer}>
                   <div>
-                    {pokemonSpeciesInfo?.flavor_text_entries
-                      .find((entry) => entry.language.name === "en")
-                      ?.flavor_text.replace("\u000c", " ")}
+                    <h2 className={styles.nameText}>
+                      {pokemonName.replace("-", " ")}
+                    </h2>
+                    <div>
+                      {pokemonSpeciesInfo?.flavor_text_entries
+                        .find((entry) => entry.language.name === "en")
+                        ?.flavor_text.replace("\u000c", " ")}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className={styles.infoContainer}>
-                <ImageCard pokemonDetails={pokemonDetails} />
-                <div className={styles.statsContainer}>
-                  <StatsCard pokemonDetails={pokemonDetails} />
+                <div className={styles.infoContainer}>
+                  <ImageCard pokemonDetails={pokemonDetails} />
+                  <div className={styles.statsContainer}>
+                    <StatsCard pokemonDetails={pokemonDetails} />
+                  </div>
                 </div>
-              </div>
-            </>
-          ) : (
-            <div>Something went wrong!</div>
-          )}
-        </>
-      )}
-    </div>
+              </>
+            ) : (
+              <div>Something went wrong!</div>
+            )}
+          </>
+        )}
+      </div>
+    </>
   );
 };
 

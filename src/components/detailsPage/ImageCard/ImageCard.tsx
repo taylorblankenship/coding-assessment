@@ -16,6 +16,7 @@ const ImageCard = ({ pokemonDetails }: { pokemonDetails: PokemonDetails }) => {
           playCry();
         }}
         className={styles.pokemonImg}
+        aria-label="click to play pokemon cry"
       >
         <img
           src={
@@ -35,9 +36,8 @@ const ImageCard = ({ pokemonDetails }: { pokemonDetails: PokemonDetails }) => {
           title="Toggle shiny pokemon image"
           className={`${styles.shinyButton} ${isShiny && styles.shinyEnabled}`}
           onClick={() => setIsShiny(!isShiny)}
+          aria-label="click to toggle shiny pokemon image"
         >
-          {/* todo decide if you want this text or not */}
-          <span className={styles.shinyText}>Shiny</span>
           <img
             src="\star.png"
             className={isShiny ? styles.shinyEnabled : ""}

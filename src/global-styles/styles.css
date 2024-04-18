@@ -34,9 +34,14 @@ header div a {
   font-size: 5rem;
   justify-content: center;
 }
+header h1 {
+  font-size: 5rem;
+  margin: 0;
+}
 
 main {
   margin: 1rem;
+  min-height: 56rem;
 }
 body {
   padding: 0;

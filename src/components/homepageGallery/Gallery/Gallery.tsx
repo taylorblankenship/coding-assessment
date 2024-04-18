@@ -24,7 +24,7 @@ const Gallery = () => {
       </div>
       {galleryPokemon.length ? (
         <>
-          <div className={styles.galleryItemsContainer}>
+          <div className={styles.galleryItemsContainer} aria-live="polite">
             {galleryPokemon?.map((pokemon, idx) => (
               <GalleryCard pokemon={pokemon} key={idx} />
             ))}
@@ -40,7 +40,10 @@ const Gallery = () => {
           </button>
         </>
       ) : (
-        <div className={`${styles.galleryContainer} ${styles.emptyState}`}>
+        <div
+          className={`${styles.galleryContainer} ${styles.emptyState}`}
+          aria-live="polite"
+        >
           No results! Please try a different search.
           <img src="\sleepy-pika.png" alt="sleepy pikachu image" />
         </div>
