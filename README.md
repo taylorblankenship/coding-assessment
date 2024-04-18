@@ -1,3 +1,5 @@
+![pokesearch-white-back](https://github.com/taylorblankenship/coding-assessment/assets/126515393/6ddbba3c-f78e-4d40-97f8-89acd3643977)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
