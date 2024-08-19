@@ -19,13 +19,13 @@ jobs:
           node-version: "20"
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Run lint
-        run: yarn lint
+        run: next lint
 
       - name: Run tests
-        run: yarn test
+        run: jest
 
       - name: Upload coverage results
         if: success()
