@@ -3,7 +3,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-4px);
   }
   100% {
     transform: translateY(0);
@@ -32,7 +32,6 @@
   width: 100%;
 }
 
-.gallery_card img:hover {
-  width: 100%;
+.gallery_card:hover img {
   animation: bounce 0.4s ease infinite;
 }
