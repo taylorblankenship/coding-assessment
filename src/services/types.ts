@@ -12,6 +12,7 @@ export interface PokemonDetails {
   held_items: { item: { name: string } }[];
   moves: { move: { name: string } }[];
   types: { type: { name: string } }[];
+  game_indices: [{ game_index: { name: string } }, { game_index: { name: string } }];
 
   //Media
   sprites: {
@@ -35,3 +36,4 @@ export interface PokemonSpeciesInfo {
   };
   flavor_text_entries: { flavor_text: string; language: { name: string } }[];
 }
+

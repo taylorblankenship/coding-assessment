@@ -5,11 +5,16 @@ interface StyledItemProps {
   isType?: boolean;
 }
 
-const StyledItem = ({ text, isType }: StyledItemProps) => {
-  const typeClass = isType ? " " + styles[text.toLowerCase()] : "";
+const StyledItem: React.FC<StyledItemProps> = ({ text = '', isType = false }) => {
+  // Ensure text is a string and is not undefined
+  const formattedText = typeof text === 'string' ? text.replace("-", " ") : '';
+
+  // Compute the class name conditionally
+  const typeClass = isType ? " " + styles[formattedText.toLowerCase()] : '';
+
   return (
     <div className={styles.styledItem + typeClass}>
-      {text.replace("-", " ")}
+      {formattedText}
     </div>
   );
 };
