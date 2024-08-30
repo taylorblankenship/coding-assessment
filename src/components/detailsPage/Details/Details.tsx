@@ -13,6 +13,8 @@ const Details = ({ pokemonName }: { pokemonName: string }) => {
   const color = {
     backgroundColor: `var(--${pokemonSpeciesInfo?.color.name}-hex)`,
   };
+  console.log(pokemonDetails) 
+
 
   return (
     <>
