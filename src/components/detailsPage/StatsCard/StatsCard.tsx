@@ -59,6 +59,15 @@ const StatsCard = ({ pokemonDetails }: { pokemonDetails: PokemonDetails }) => {
             ))}
           </div>
         </div>
+        <div>
+          <h4>GAME INDICES</h4>
+          <div>
+            {pokemonDetails.game_indices.map((game_index, idx) => (
+              <StyledItem key={idx} text={game_index.version.name} />
+            ))}
+          </div>
+        </div>
+        <div></div>
       </div>
     </div>
   );

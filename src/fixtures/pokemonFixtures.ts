@@ -40,7 +40,11 @@ export const mockPokemonDetails: PokemonDetails = {
     legacy: "pikachu_cry_legacy/1.ogg",
     latest: "pikachu_cry_latest/2.ogg",
   },
-};
+  game_indices: [
+  { game_index: { version: {name: "red"} }},
+  { game_index: { version: {name: "blue"} }},
+  ]
+}
 
 export const mockPokemonSpeciesInfo: PokemonSpeciesInfo = {
   id: 1,

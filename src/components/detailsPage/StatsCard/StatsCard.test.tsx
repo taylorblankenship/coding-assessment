@@ -36,5 +36,6 @@ describe("StatsCard component", () => {
 
     expect(getByText("TYPE")).toBeInTheDocument();
     expect(getByText("Electric")).toBeInTheDocument();
+    expect(getByText("GAME INDICES")).toBeInTheDocument();
   });
 });

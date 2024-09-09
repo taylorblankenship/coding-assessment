@@ -33,6 +33,7 @@ describe("Details component", () => {
       );
       expect(getByText("ID")).toBeInTheDocument();
       expect(getByText("ABILITIES")).toBeInTheDocument();
+      expect(getByText("GAME INDICES")).toBeInTheDocument();
     });
   });
 });
